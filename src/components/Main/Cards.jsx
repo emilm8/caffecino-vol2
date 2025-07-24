@@ -41,15 +41,15 @@ function Cards({ id, img, price, name, description }) {
             </article>
 
             {isOpen && (
-                <div className="fixed inset-0 z-50 bg-black/50 flex items-end sm:items-center justify-center">
+                <div className="fixed inset-0 z-50 bg-black/50 flex items-end sm:items-center justify-center shadow-[0_2px_8px_#91966050]">
                     <div
                         ref={modalRef}
-                        className="bg-white w-full sm:max-w-md sm:rounded-xl rounded-t-2xl p-5 sm:p-6 relative
+                        className="bg-white w-ful shadow-[0_2px_8px_#91966050] sm:max-w-md sm:rounded-xl rounded-t-2xl p-3 sm:p-6 relative
                                    animate-slide-up sm:animate-none sm:translate-y-0"
                     >
                         <button
                             onClick={() => setIsOpen(false)}
-                            className="absolute top-3 right-4 text-gray-500 hover:text-black text-xl"
+                            className="absolute top-3 right-4 text-white hover:text-red-500 text-3xl"
                         >
                             &times;
                         </button>

@@ -45,7 +45,7 @@ export default function Menu() {
 
 
   return (
-    <main className='bg-[#f7f7f7] min-h-[100vh]'>
+    <main className='bg-[#f7f7f7] min-h-[88vh]'>
       <section className="sticky top-0 bg-white z-10 p-4 flex gap-4 shadow-md">
         {data.map(item => <a href={`#${item.slug}`} className="nav-link text-gray-500">{item[`name_${loc}`]}</a>)}
       </section>

@@ -20,3 +20,7 @@
   animation: slideUp 0.3s ease-out;
 }
 
+.icon-wrapper:hover .rotatable-icon {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}

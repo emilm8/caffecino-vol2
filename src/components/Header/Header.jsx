@@ -1,6 +1,7 @@
   import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CiSearch } from "react-icons/ci";
+import { FaAngleDown } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 function Header() {
@@ -24,7 +25,7 @@ function Header() {
   }
 
   return (
-    <header className="border-b border-[#333] py-3 bg-[#919660]">
+    <header className="border border-b-[#919660] shadow-[0_2px_8px_#91966050] py-1 bg-[#919660]">
       <div className="flex justify-between items-center max-w-500 mx-auto px-4">
         <div className="w-15">
           <Link to="/">
@@ -39,8 +40,8 @@ function Header() {
             className="text-white focus:outline-none"
           >
             <div className="flex justify-center items-center gap-2">
-              <div className="p-2 border border-amber-600 rounded-2xl text-white">
-                <p>{activeLanguage.toUpperCase()}</p>
+              <div className="p-2  flex items-center gap-2 rounded-2xl  text-white">
+                <p>{activeLanguage.toUpperCase()}</p> <FaAngleDown className='transition-transform duration-300 group-hover:rotate-180' />
               </div>
             </div>
           </button>
@@ -52,6 +53,7 @@ function Header() {
                 className="p-2 hover:bg-gray-100 cursor-pointer"
               >
                 <p>AZ</p>
+
               </div>
               <div
                 onClick={() => handleLanguage('en')}

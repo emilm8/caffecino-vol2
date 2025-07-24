@@ -19,7 +19,7 @@ function Main() {
 
   return (
     <>
-      <main className="px-4 md:px-8 py-6">
+      <main className="px-4 md:px-8 py-6 min-h-[90vh]">
         <div className="mb-6">
           <p className="text-xl font-semibold text-gray-800">
             {t('category')}
