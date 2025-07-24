@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+.nav-link.active {
+  color: #f97316; 
+  font-weight: bold;
+  border-bottom: 2px solid #f97316;
+}
+
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
