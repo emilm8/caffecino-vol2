@@ -23,9 +23,9 @@ function MenuHeader() {
             </Link>
 
         </div>
-         <div className="w-12   ">
-          <Link to="/menu">
-             <img src="/images/caffecino.png" alt="Logo" /> 
+         <div className="w-14 h-14">
+          <Link to="/">
+             <img src="/images/caffecino.png" alt="Logo" className='h-14 w-14'/> 
           </Link>
         </div>
         <div>

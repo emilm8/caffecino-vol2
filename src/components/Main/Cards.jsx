@@ -24,7 +24,7 @@ function Cards({ id, img = [], price, name, description }) {
     };
   }, [isOpen]);
 
-  const thumb = img[0] || '/images/placeholder.png'; // локальный плейсхолдер
+  const thumb = img[0] || '/images/placeholder.png'; 
 
   return (
     <>

@@ -41,9 +41,9 @@ function Header() {
 
   return (
     <header className="bg-[#919660] shadow-[0_2px_8px_#91966050] py-2">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-4">
+      <div className="max-w-9xl flex items-center justify-between px-4">
         <Link to="/" className="flex-shrink-0">
-          <img src="/images/caffecino.png" alt="Logo" className="h-10" />
+          <img src="/images/caffecino.png" alt="Logo" className="h-14" />
         </Link>
 
         <div className="relative">

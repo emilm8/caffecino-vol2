@@ -49,7 +49,7 @@ export default function Menu() {
               >
                 {sec[`name_${loc}`]}
               </h2>
-              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-3">
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-3 mb-4">
                 {sec.products.map((prod) => (
                   <Cards
                     key={prod.id}
