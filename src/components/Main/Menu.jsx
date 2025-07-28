@@ -26,12 +26,12 @@ export default function Menu() {
   return (
     <main className="bg-[#f7f7f7] min-h-[88vh]">
        
-      <section className="sticky top-0 bg-white z-10 p-4 flex gap-4 shadow-md">
+      <section className="sticky top-0 bg-white z-10 p-4 flex gap-4 shadow-md text-nowrap overflow-x-auto hide-scrollbar ">
         {sections.map((sec) => (
           <a
             key={sec.slug}
-            href={`#${sec.slug}`}
-            className="nav-link text-gray-500"
+            href={`#${sec.slug}`} 
+            className="nav-link text-gray-500 text-[12px] "
           >
             {sec[`name_${loc}`]}
           </a>

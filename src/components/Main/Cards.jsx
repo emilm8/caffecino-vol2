@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-function Cards({ id, img = [], price, name, description }) {
+function Cards({ id, img = [], price, name, description ,size}) {
   const [isOpen, setIsOpen] = useState(false);
   const modalRef = useRef(null);
 
@@ -65,6 +65,7 @@ function Cards({ id, img = [], price, name, description }) {
             />
             <h2 className="text-xl font-bold mt-4">{name}</h2>
             <p className="text-sm text-gray-600 mt-2">{description}</p>
+            <p className="text-sm text-gray-600 mt-2">{size}</p>
             <div className="text-lg font-semibold text-black mt-4">{price} Azn</div>
           </div>
         </div>
@@ -74,3 +75,4 @@ function Cards({ id, img = [], price, name, description }) {
 }
 
 export default Cards;
+
