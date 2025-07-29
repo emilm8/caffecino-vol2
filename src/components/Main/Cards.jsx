@@ -54,7 +54,7 @@ function Cards({ id, img = [], price, name, description }) {
           >
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-3 right-4 text-gray-700 hover:text-red-500 text-3xl leading-none"
+             className="absolute top-4 right-5 xl:top-5 xl:right-6 text-white shadow-xl hover:text-red-500 text-4xl leading-none"
             >
               &times;
             </button>

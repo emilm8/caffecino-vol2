@@ -49,7 +49,7 @@ function Header() {
         <div className="relative">
           <button
             onClick={() => setOpen(!open)}
-            className="flex items-center gap-2 px-3 py-1 bg-[#7a8a4f] rounded-full focus:outline-none hover:bg-[#6f7c49] transition-colors"
+            className="flex items-center gap-2 px-3 py-1 bg-[#919660] rounded-full focus:outline-none hover:bg-[#6f7c49] transition-colors"
           >
             <img
               src={LANGUAGES[activeLang].flagUrl}
@@ -64,7 +64,7 @@ function Header() {
           </button>
 
           {open && (
-            <ul className="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg overflow-hidden z-50">
+            <ul className="absolute right-0 mt-2 w-32 bg-white opacity-90  rounded-lg shadow-lg overflow-hidden z-50">
               {Object.entries(LANGUAGES).map(([code, { label, flagUrl }]) => (
                 <li
                   key={code}
