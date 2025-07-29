@@ -25,13 +25,18 @@
   transition: transform 0.3s ease;
 }
 
-
-.hide-scrollbar {
-  scrollbar-width: none; 
-  -ms-overflow-style: none; 
+.nav-link.active {
+  background-color: #1d2f6f; /* tünd mavi */
+  color: white;
+  border-bottom: none;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE və Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 

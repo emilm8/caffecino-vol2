@@ -28,9 +28,23 @@ export async function getProductsByCategory(categoryId) {
   return res.json();
 }
 
+export async function searchProduct(name) {
+  if (name.length < 2) {
+    return { products: [], totalProducts: 0, totalPages: null, currentPage: null };
+  }
+  const url = new URL(`${BASE_URL}/products/search`);
+  url.searchParams.set("name", name);
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`Ошибка поиска продуктов: ${res.status}`);
+  }
+  return res.json();
+}
+
 export default {
   getFullCategory,
   getFullSubcategory,
   getCategoryById,
   getProductsByCategory,
+  searchProduct,
 };

@@ -24,7 +24,7 @@ export default function Main() {
       <div className="mb-6">
         <p className="text-xl font-semibold text-gray-800">{t("category")}</p>
       </div>
-      <section className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <section className="grid grid-cols-1 sm:grid-cols-2  gap-4">
         {categories.map((item) => (
           <Link key={item.id} to={`/menu/${item.id}`}>
             <div className="w-full rounded-2xl overflow-hidden relative group">
