@@ -17,7 +17,11 @@ export default function Menu({ searchOpen, onCloseSearch }) {
     (async () => {
       try {
         const data = await getProductsByCategory(categoryId);
-        setSections(data);
+        const filteredSections = data.map(sec => ({
+          ...sec,
+          products: sec.products.filter(p => p.status)
+        }));
+        setSections(filteredSections);
       } catch (err) {
         console.error("Error loading menu:", err);
       }
@@ -28,8 +32,11 @@ export default function Menu({ searchOpen, onCloseSearch }) {
     const handler = setTimeout(() => {
       if (query.length >= 2) {
         searchProduct(query)
-          .then((data) => setResults(data.products || []))
-          .catch((err) => console.error("Search error:", err));
+          .then(data => {
+            const active = (data.products || []).filter(p => p.status);
+            setResults(active);
+          })
+          .catch(err => console.error("Search error:", err));
       } else {
         setResults([]);
       }
@@ -42,25 +49,24 @@ export default function Menu({ searchOpen, onCloseSearch }) {
     const handleScroll = () => {
       const sectionElements = document.querySelectorAll("h2[id]");
       let current = "";
-      sectionElements.forEach((sec) => {
+      sectionElements.forEach(sec => {
         if (window.scrollY >= sec.offsetTop - 120) {
           current = sec.id;
         }
       });
-
-      document.querySelectorAll(".nav-link").forEach((a) => {
+      document.querySelectorAll(".nav-link").forEach(a => {
         const isActive = a.getAttribute("href") === `#${current}`;
         a.classList.toggle("active", isActive);
         if (isActive) {
-          a.scrollIntoView({
-            behavior: "smooth",
-            inline: "center",
-            block: "nearest",
-          });
+          a.scrollIntoView(
+            { 
+              behavior: "smooth", 
+              inline: "center", 
+              block: "nearest" 
+            });
         }
       });
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [sections]);
@@ -73,7 +79,7 @@ export default function Menu({ searchOpen, onCloseSearch }) {
             autoFocus
             type="text"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={e => setQuery(e.target.value)}
             placeholder={"Search..."}
             className="w-full p-2 mb-4 border border-[#919660] rounded focus:outline-none focus:ring focus:ring-[#919660]/50 transition-colors duration-200"
           />
@@ -87,7 +93,7 @@ export default function Menu({ searchOpen, onCloseSearch }) {
             {"Bağla"}
           </button>
           <div className="grid grid-cols-2 gap-4">
-            {results.map((p) => (
+            {results.map(p => (
               <Cards
                 key={p.id}
                 {...p}
@@ -109,7 +115,7 @@ export default function Menu({ searchOpen, onCloseSearch }) {
   return (
     <main className="bg-[#f7f7f7] min-h-[88vh]">
       <section className="sticky top-0 bg-white z-10 p-4 flex gap-4 overflow-x-auto hide-scrollbar shadow-md">
-        {sections.map((sec) => (
+        {sections.map(sec => (
           <a
             key={sec.slug}
             href={`#${sec.slug}`}
@@ -122,16 +128,13 @@ export default function Menu({ searchOpen, onCloseSearch }) {
 
       <section className="py-6 sm:py-10 transition-opacity duration-300">
         <div className="p-4 mx-auto max-w-500">
-          {sections.map((sec) => (
+          {sections.map(sec => (
             <div key={sec.slug}>
-              <h2
-                id={sec.slug}
-                className="text-lg font-bold mb-4 capitalize"
-              >
+              <h2 id={sec.slug} className="text-lg font-bold mb-4 capitalize">
                 {sec[`name_${loc}`]}
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-4">
-                {sec.products.map((prod) => (
+                {sec.products.map(prod => (
                   <Cards
                     key={prod.id}
                     {...prod}
