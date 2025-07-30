@@ -12,7 +12,7 @@ export default function Main() {
     (async () => {
       try {
         const cats = await getFullCategory();
-        setCategories(cats);
+        setCategories(cats.reverse());
       } catch (err) {
         console.error("Error loading categories:", err);
       }
